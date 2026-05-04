@@ -478,12 +478,21 @@ function handleClick(e) {
     case 'save-card':
       handleSaveCard();
       break;
-    case 'flip-card':
+    case 'flip-card': {
       if (!state.review.flipped) {
         state.review.flipped = true;
         render();
+        // Back content can be taller than the fixed 280px min-height.
+        // If it overflows, it covers the rating buttons and blocks taps.
+        // Expand the container to fit the actual back content height.
+        const back = document.querySelector('.flashcard-back');
+        const inner = document.querySelector('.flashcard-inner');
+        if (back && inner) {
+          inner.style.minHeight = back.scrollHeight + 'px';
+        }
       }
       break;
+    }
     case 'rate':
       handleRate(parseInt(btn.dataset.rating, 10));
       break;

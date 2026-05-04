@@ -10,6 +10,17 @@
 
 ---
 
+## RESOLVED — Rating buttons unclickable on long flashcard backs
+
+**Date**: 2026-05-04  
+**Symptom**: After flipping a card with a long French definition + example sentence, the 1–5 rating buttons were visible but unresponsive to taps. The user could not advance through the review session.  
+**Root cause**: `.flashcard-front` and `.flashcard-back` are `position: absolute; inset: 0` inside `.flashcard-inner` (which has a fixed `min-height: 280px`). When the back content exceeds 280px it overflows downward — visually covering the `.rating-row` that follows in the DOM. Taps on the rating buttons actually landed on the overflowing card content (which is part of the `.flashcard` element with `data-action="flip-card"`), so they were swallowed as no-op flip attempts.  
+**Fix**: In `handleClick` for `flip-card`, after `render()` measure `back.scrollHeight` and set it on `.flashcard-inner.style.minHeight`. The container then grows to hold all back content, pushing the rating row below it and making it fully tappable.  
+**File**: `app.js` → `handleClick` → `case 'flip-card'`  
+**SW bump**: `fva-v2` → `fva-v3` in `sw.js` to force cache refresh.
+
+---
+
 ## RESOLVED — Service worker served stale app.js after fix
 
 **Date**: 2026-05-03  

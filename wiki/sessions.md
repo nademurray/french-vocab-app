@@ -22,6 +22,20 @@
 
 ---
 
+## 2026-05-04 — Fix rating buttons blocked by long card content
+
+**Summary**: Debugged and fixed a bug where the 1–5 rating buttons were unclickable when a flashcard's back content was long.
+
+**What was done**:
+- Diagnosed overflow issue: back face (`position: absolute; inset: 0`) overflowed its 280px container and covered the rating buttons
+- Fixed in `app.js`: after flip, measure `back.scrollHeight` and set it on `.flashcard-inner.style.minHeight`
+- Bumped SW cache `fva-v2` → `fva-v3` in `sw.js` to force phone to receive updated `app.js`
+- Updated `wiki/issues.md` with root cause and fix
+
+**State at end of session**: Bug fixed and committed. Rating buttons always accessible regardless of card content length.
+
+---
+
 ## 2026-05-04 — Wiki creation and session close
 
 **Summary**: Created LLM wiki for persistent cross-session context.

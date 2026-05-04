@@ -1,4 +1,4 @@
-const CACHE = 'fva-v2';
+const CACHE = 'fva-v3';
 const ASSETS = [
   './index.html',
   './style.css',
