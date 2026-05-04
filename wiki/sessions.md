@@ -17,6 +17,18 @@
 - Fixed service worker caching bug (see issues.md)
 - Added `.gitignore` to exclude `French-Vocabulary-App-Brief.md` and `.claude/` from repo
 - User successfully saved first card ("filer")
-- Created this wiki
 
 **State at end of session**: App fully functional on user's phone. 1 card in deck.
+
+---
+
+## 2026-05-04 — Wiki creation and session close
+
+**Summary**: Created LLM wiki for persistent cross-session context.
+
+**What was done**:
+- Created `wiki/` folder with 5 pages: `index.md`, `project.md`, `architecture.md`, `sessions.md`, `issues.md`, `backlog.md`
+- Wiki follows Karpathy's LLM Wiki pattern (gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)
+- Committed and pushed wiki to repo
+
+**State at end of session**: App live and working. Wiki in place. User starting new chat sessions from here.
