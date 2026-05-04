@@ -32,7 +32,7 @@
 - Bumped SW cache `fva-v2` → `fva-v3` in `sw.js` to force phone to receive updated `app.js`
 - Updated `wiki/issues.md` with root cause and fix
 
-**State at end of session**: Bug fixed and committed. Rating buttons always accessible regardless of card content length.
+**State at end of session**: Bug fixed, committed, pushed, and confirmed working on device. Rating buttons always accessible regardless of card content length.
 
 ---
 
